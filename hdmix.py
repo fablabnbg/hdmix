@@ -8,7 +8,7 @@ matrixIds = {
     "Chromecast": 2,
     "Volumio": 3,
     "BeamerSpace": 1,
-    "LautsprecherSpace": 2,
+    "LautsprecherSpace": 6,
     "BeamerChillecke": 5,
 }
 
