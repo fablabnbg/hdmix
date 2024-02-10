@@ -12,7 +12,8 @@ matrixIds = {
     "BeamerChillecke": 5,
 }
 
-HOST = "192.168.1.10"
+#HOST = "192.168.1.10"
+HOST = "172.22.35.189"
 PORT = 5000
 
 
@@ -39,9 +40,9 @@ def requestMatrixState():
 @app.route("/")
 def index():
     matrixState = requestMatrixState()
-    inputLautsprecherSpace = int(matrixState.split("O2I")[1][0])
-    inputBeamerSpace = int(matrixState.split("O1I")[1][0])
-    inputBeamerChillecke = int(matrixState.split("O5I")[1][0])
+    inputLautsprecherSpace = int(matrixState.split(f"O{matrixIds['LautsprecherSpace']}I")[1][0])
+    inputBeamerSpace = int(matrixState.split(f"O{matrixIds['BeamerSpace']}I")[1][0])
+    inputBeamerChillecke = int(matrixState.split(f"O{matrixIds['BeamerChillecke']}I")[1][0])
 
     return f"""
 <!doctype html>
