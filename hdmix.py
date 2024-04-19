@@ -4,13 +4,13 @@ from flask import Flask, redirect, request
 
 
 matrixIds = {
-    "Kabel": 1,
-    "Chromecast": 2,
-    "Volumio": 3,
+    "Kabel":                1,
+    "Chromecast":           2,
+    "Volumio":              3,
     "Chromecast-Chillecke": 4,
-    "BeamerSpace": 1,
-    "LautsprecherSpace": 6,
-    "BeamerChillecke": 5,
+    "BeamerSpace":          1,
+    "LautsprecherSpace":    6,
+    "BeamerChillecke":      5,
 }
 
 #HOST = "192.168.1.10"
@@ -62,26 +62,26 @@ def index():
                 <form action=/switch>
                     <div style="margin-top: 1rem; margin-bottom: 2rem">
                         <h3>Lautsprecher *space</h3>
-                        <input type=submit name=LautsprecherSpace value=Kabel class="btn {'btn-primary' if inputLautsprecherSpace == 1 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value=Chromecast class="btn {'btn-primary' if inputLautsprecherSpace == 2 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value=Volumio class="btn {'btn-primary' if inputLautsprecherSpace == 3 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value=Chromecast-Chillecke class="btn {'btn-primary' if inputLautsprecherSpace == 4 else 'btn-secondary'}" />
+                        <input type=submit name=LautsprecherSpace value="Kabel *space"          class="btn {'btn-primary' if inputLautsprecherSpace == 1 else 'btn-secondary'}" />
+                        <input type=submit name=LautsprecherSpace value="Volumio"               class="btn {'btn-primary' if inputLautsprecherSpace == 3 else 'btn-secondary'}" />
+                        <input type=submit name=LautsprecherSpace value="Chromecast Main"       class="btn {'btn-primary' if inputLautsprecherSpace == 2 else 'btn-secondary'}" />
+                        <input type=submit name=LautsprecherSpace value="Chromecast Chillecke"  class="btn {'btn-primary' if inputLautsprecherSpace == 4 else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
                         <h3>Beamer *space</h3>
-                        <input type=submit name=BeamerSpace value=Kabel class="btn {'btn-primary' if inputBeamerSpace == 1 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value=Chromecast class="btn {'btn-primary' if inputBeamerSpace == 2 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value=Volumio class="btn {'btn-primary' if inputBeamerSpace == 3 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value=Chromecast-Chillecke class="btn {'btn-primary' if inputBeamerSpace == 4 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Kabel *space"            class="btn {'btn-primary' if inputBeamerSpace == 1 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Volumio"                 class="btn {'btn-primary' if inputBeamerSpace == 3 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerSpace == 2 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerSpace == 4 else 'btn-secondary'}" />
                     </div>
 
                     <div>
                         <h3>Beamer Chillecke</h3>
-                        <input type=submit name=BeamerChillecke value=Kabel class="btn {'btn-primary' if inputBeamerChillecke == 1 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value=Chromecast class="btn {'btn-primary' if inputBeamerChillecke == 2 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value=Volumio class="btn {'btn-primary' if inputBeamerChillecke == 3 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value=Chromecast-Chillecke class="btn {'btn-primary' if inputBeamerChillecke == 4 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Kabel *space"            class="btn {'btn-primary' if inputBeamerChillecke == 1 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputBeamerChillecke == 3 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerChillecke == 2 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerChillecke == 4 else 'btn-secondary'}" />
                     </div>
                 </form>
             </section>
