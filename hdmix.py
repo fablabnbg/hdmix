@@ -4,10 +4,10 @@ from flask import Flask, redirect, request
 
 
 matrixIds = {
-    "Kabel":                1,
-    "Chromecast":           2,
+    "Kabel *space":         1,
+    "Chromecast Main":      2,
     "Volumio":              3,
-    "Chromecast-Chillecke": 4,
+    "Chromecast Chillecke": 4,
     "BeamerSpace":          1,
     "LautsprecherSpace":    6,
     "BeamerChillecke":      5,
