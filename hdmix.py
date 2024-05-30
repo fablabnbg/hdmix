@@ -87,7 +87,7 @@ def index():
                     </div>
  
                     <div style="margin-bottom: 2rem">
-                        <h3>Werstatt DeepFrequencies</h3>
+                        <h3>Werkstatt DeepFrequencies</h3>
                         <input type=submit name=BeamerChillecke value="Kabel *space"            class="btn {'btn-primary' if inputWerkstatt == 1 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
