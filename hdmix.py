@@ -11,7 +11,8 @@ matrixIds = {
     "BeamerSpace":          1,
     "LautsprecherSpace":    6,
     "BeamerChillecke":      5,
-    "Werkstatt DeepFrequencies": 7
+    "Werkstatt DeepFrequencies": 7,
+    "Xbox Main": 8
 }
 
 #HOST = "192.168.1.10"
@@ -68,6 +69,7 @@ def index():
                         <input type=submit name=LautsprecherSpace value="Volumio"               class="btn {'btn-primary' if inputLautsprecherSpace == 3 else 'btn-secondary'}" />
                         <input type=submit name=LautsprecherSpace value="Chromecast Main"       class="btn {'btn-primary' if inputLautsprecherSpace == 2 else 'btn-secondary'}" />
                         <input type=submit name=LautsprecherSpace value="Chromecast Chillecke"  class="btn {'btn-primary' if inputLautsprecherSpace == 4 else 'btn-secondary'}" />
+                        <input type=submit name=LautsprecherSpace value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
@@ -76,6 +78,7 @@ def index():
                         <input type=submit name=BeamerSpace value="Volumio"                 class="btn {'btn-primary' if inputBeamerSpace == 3 else 'btn-secondary'}" />
                         <input type=submit name=BeamerSpace value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerSpace == 2 else 'btn-secondary'}" />
                         <input type=submit name=BeamerSpace value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerSpace == 4 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
@@ -84,6 +87,7 @@ def index():
                         <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputBeamerChillecke == 3 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerChillecke == 2 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerChillecke == 4 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
  
                     <div style="margin-bottom: 2rem">
@@ -92,6 +96,7 @@ def index():
                         <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputWerkstatt == 4 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
                 </form>
             </section>
