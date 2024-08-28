@@ -4,18 +4,20 @@ from flask import Flask, redirect, request
 
 
 matrixIds = {
-    "Kabel *space":         1,
-    "Chromecast Main":      2,
-    "Volumio":              3,
+    # Inputs
+    "Kabel *space": 1,
+    "Chromecast Main": 2,
+    "Volumio": 3,
     "Chromecast Chillecke": 4,
-    "BeamerSpace":          1,
-    "LautsprecherSpace":    6,
-    "BeamerChillecke":      5,
-    "Werkstatt DeepFrequencies": 7,
-    "Xbox Main": 8
+    "Xbox Main": 8,
+
+    # Outputs
+    "BeamerSpace": 1, # A
+    "LautsprecherSpace": 6, # F
+    "BeamerChillecke": 5, # E
+    "Werkstatt": 7, # G
 }
 
-#HOST = "192.168.1.10"
 HOST = "172.22.35.189"
 PORT = 5000
 
@@ -46,7 +48,7 @@ def index():
     inputLautsprecherSpace = int(matrixState.split(f"O{matrixIds['LautsprecherSpace']}I")[1][0])
     inputBeamerSpace = int(matrixState.split(f"O{matrixIds['BeamerSpace']}I")[1][0])
     inputBeamerChillecke = int(matrixState.split(f"O{matrixIds['BeamerChillecke']}I")[1][0])
-    inputWerkstatt = int(matrixState.split(f"O{matrixIds['Werkstatt DeepFrequencies']}I")[1][0])
+    inputWerkstatt = int(matrixState.split(f"O{matrixIds['Werkstatt']}I")[1][0])
 
     return f"""
 <!doctype html>
@@ -89,14 +91,14 @@ def index():
                         <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerChillecke == 4 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
- 
+
                     <div style="margin-bottom: 2rem">
-                        <h3>Werkstatt DeepFrequencies</h3>
-                        <input type=submit name=BeamerChillecke value="Kabel *space"            class="btn {'btn-primary' if inputWerkstatt == 1 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputWerkstatt == 4 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
+                        <h3>Werkstatt</h3>
+                        <input type=submit name=Werkstatt value="Kabel *space"            class="btn {'btn-primary' if inputWerkstatt == 1 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Volumio"                 class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Chromecast Main"         class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Chromecast Chillecke"    class="btn {'btn-primary' if inputWerkstatt == 4 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
                 </form>
             </section>
