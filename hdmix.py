@@ -22,6 +22,45 @@ matrixIds = {
 HOST = "172.22.35.189"
 PORT = 5000
 
+inputIds =  {
+    "input1": 1,
+    "input2": 2,
+    "input3": 3,
+    "input4": 4,
+    "input5": 5,
+    "input6": 6,
+    "input7": 7,
+    "input8": 8,
+}
+
+outputIds =  {
+    "output1": 1, # A
+    "output2": 2, # B
+    "output3": 3, # C
+    "output4": 4, # D
+    "output5": 5, # E
+    "output6": 6, # F
+    "output7": 7, # G
+    "output8": 8, # H
+}
+
+input1Label  = "Kabel *space"
+input2Label  = "Chromecast Main"
+input3Label  = "Voumeio"
+input4Label  = "Chromecast Chillout"
+input5Label  = ""
+input6Label  = ""
+input7Label  = ""
+input8Label  = "Xbox Main"
+
+output1Label = "Beamer *space"
+output2Label = ""
+output3Label = "Lautsprecher Chillout"
+output4Label = ""
+output5Label = "Beamer Chillout"
+output6Label = "Lautsprecher *space"
+output7Label = "Werkstatt"
+output8Label = "Xbox Main"
 
 app = Flask(__name__)
 
@@ -46,10 +85,19 @@ def requestMatrixState():
 @app.route("/")
 def index():
     matrixState             = requestMatrixState()
-    inputLautsprecherSpace  = int(matrixState.split(f"O{matrixIds['LautsprecherSpace']}I")[1][0])
-    inputBeamerSpace        = int(matrixState.split(f"O{matrixIds['BeamerSpace']}I")[1][0])
-    inputBeamerChillecke    = int(matrixState.split(f"O{matrixIds['BeamerChillecke']}I")[1][0])
-    inputWerkstatt          = int(matrixState.split(f"O{matrixIds['Werkstatt']}I")[1][0])
+    #inputLautsprecherSpace  = int(matrixState.split(f"O{matrixIds['LautsprecherSpace']}I")[1][0])
+    #inputBeamerSpace        = int(matrixState.split(f"O{matrixIds['BeamerSpace']}I")[1][0])
+    #inputBeamerChillecke    = int(matrixState.split(f"O{matrixIds['BeamerChillecke']}I")[1][0])
+    #inputWerkstatt          = int(matrixState.split(f"O{matrixIds['Werkstatt']}I")[1][0])
+
+    currentInput1   = int(matrixState.split(f"O{outputIds['output1']}I")[1][0])
+    currentInput2   = int(matrixState.split(f"O{outputIds['output2']}I")[1][0])
+    currentInput3   = int(matrixState.split(f"O{outputIds['output3']}I")[1][0])
+    currentInput4   = int(matrixState.split(f"O{outputIds['output4']}I")[1][0])
+    currentInput5   = int(matrixState.split(f"O{outputIds['output5']}I")[1][0])
+    currentInput6   = int(matrixState.split(f"O{outputIds['output6']}I")[1][0])
+    currentInput7   = int(matrixState.split(f"O{outputIds['output7']}I")[1][0])
+    currentInput8   = int(matrixState.split(f"O{outputIds['output8']}I")[1][0])
 
     return f"""
 <!doctype html>
@@ -68,38 +116,38 @@ def index():
                 <form action=/switch>
                     <div style="margin-top: 1rem; margin-bottom: 2rem">
                         <h3>Lautsprecher *space</h3>
-                        <input type=submit name=LautsprecherSpace value="Kabel *space"          class="btn {'btn-primary' if inputLautsprecherSpace == 1 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value="Volumio"               class="btn {'btn-primary' if inputLautsprecherSpace == 3 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value="Chromecast Main"       class="btn {'btn-primary' if inputLautsprecherSpace == 2 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value="Chromecast Chillecke"  class="btn {'btn-primary' if inputLautsprecherSpace == 4 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value="Xbox Main"             class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
+                        <input type=submit name=output6 value=input1Label   class="btn {'btn-primary' if currentInput6 == inputIds['input1'] else 'btn-secondary'}" />
+                        <input type=submit name=output6 value=input3Label   class="btn {'btn-primary' if currentInput6 == inputIds['input3'] else 'btn-secondary'}" />
+                        <input type=submit name=output6 value=input2Label   class="btn {'btn-primary' if currentInput6 == inputIds['input2'] else 'btn-secondary'}" />
+                        <input type=submit name=output6 value=input4Label   class="btn {'btn-primary' if currentInput6 == inputIds['input4'] else 'btn-secondary'}" />
+                        <input type=submit name=output6 value=input8Label   class="btn {'btn-primary' if currentInput6 == inputIds['input8'] else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
                         <h3>Beamer *space</h3>
-                        <input type=submit name=BeamerSpace value="Kabel *space"                class="btn {'btn-primary' if inputBeamerSpace == 1 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Volumio"                     class="btn {'btn-primary' if inputBeamerSpace == 3 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Chromecast Main"             class="btn {'btn-primary' if inputBeamerSpace == 2 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Chromecast Chillecke"        class="btn {'btn-primary' if inputBeamerSpace == 4 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Xbox Main"                   class="btn {'btn-primary' if inputBeamerSpace == 8 else 'btn-secondary'}" />
+                        <input type=submit name=output1 value=input1Label   class="btn {'btn-primary' if currentInput1 == inputIds['input1'] else 'btn-secondary'}" />
+                        <input type=submit name=output1 value=input3Label   class="btn {'btn-primary' if currentInput1 == inputIds['input3'] else 'btn-secondary'}" />
+                        <input type=submit name=output1 value=input2Label   class="btn {'btn-primary' if currentInput1 == inputIds['input2'] else 'btn-secondary'}" />
+                        <input type=submit name=output1 value=input4Label   class="btn {'btn-primary' if currentInput1 == inputIds['input4'] else 'btn-secondary'}" />
+                        <input type=submit name=output1 value=input8Label   class="btn {'btn-primary' if currentInput1 == inputIds['input8'] else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
                         <h3>Beamer Chillecke</h3>
-                        <input type=submit name=BeamerChillecke value="Kabel *space"            class="btn {'btn-primary' if inputBeamerChillecke == 1 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputBeamerChillecke == 3 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerChillecke == 2 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerChillecke == 4 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Xbox Main"               class="btn {'btn-primary' if inputBeamerChillecke == 8 else 'btn-secondary'}" />
+                        <input type=submit name=output5 value=input1Label   class="btn {'btn-primary' if currentInput5 == inputIds['input1'] else 'btn-secondary'}" />
+                        <input type=submit name=output5 value=input3Label   class="btn {'btn-primary' if currentInput5 == inputIds['input3'] else 'btn-secondary'}" />
+                        <input type=submit name=output5 value=input2Label   class="btn {'btn-primary' if currentInput5 == inputIds['input2'] else 'btn-secondary'}" />
+                        <input type=submit name=output5 value=input4Label   class="btn {'btn-primary' if currentInput5 == inputIds['input4'] else 'btn-secondary'}" />
+                        <input type=submit name=output5 value=input8Label   class="btn {'btn-primary' if currentInput5 == inputIds['input8'] else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
                         <h3>Werkstatt</h3>
-                        <input type=submit name=Werkstatt value="Kabel *space"                  class="btn {'btn-primary' if inputWerkstatt == 1 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Volumio"                       class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Chromecast Main"               class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Chromecast Chillecke"          class="btn {'btn-primary' if inputWerkstatt == 4 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Xbox Main"                     class="btn {'btn-primary' if inputWerkstatt == 8 else 'btn-secondary'}" />
+                        <input type=submit name=output7 value=input1Label   class="btn {'btn-primary' if currentInput7 == inputIds['input1'] else 'btn-secondary'}" />
+                        <input type=submit name=output7 value=input3Label   class="btn {'btn-primary' if currentInput7 == inputIds['input3'] else 'btn-secondary'}" />
+                        <input type=submit name=output7 value=input2Label   class="btn {'btn-primary' if currentInput7 == inputIds['input2'] else 'btn-secondary'}" />
+                        <input type=submit name=output7 value=input4Label   class="btn {'btn-primary' if currentInput7 == inputIds['input4'] else 'btn-secondary'}" />
+                        <input type=submit name=output7 value=input8Label   class="btn {'btn-primary' if currentInput7 == inputIds['input8'] else 'btn-secondary'}" />
                     </div>
                 </form>
             </section>
@@ -113,7 +161,8 @@ def switch():
     if len(request.args) != 0:
         for output in request.args:
             input = request.args.get(output)
-            switchInput(matrixIds[input], matrixIds[output])
+            #switchInput(matrixIds[input], matrixIds[output])
+            switchInput(inputIds[input], outputIds[output])
             print(f"{input} -> {output}")
 
     return redirect("/")
