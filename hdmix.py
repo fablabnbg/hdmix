@@ -5,17 +5,18 @@ from flask import Flask, redirect, request
 
 matrixIds = {
     # Inputs
-    "Kabel *space": 1,
-    "Chromecast Main": 2,
-    "Volumio": 3,
+    "Kabel *space":         1,
+    "Chromecast Main":      2,
+    "Volumio":              3,
     "Chromecast Chillecke": 4,
-    "Xbox Main": 8,
+    "Xbox Main":            8,
 
     # Outputs
-    "BeamerSpace": 1, # A
-    "LautsprecherSpace": 6, # F
-    "BeamerChillecke": 5, # E
-    "Werkstatt": 7, # G
+    "BeamerSpace":              1, # A
+    "LautsprecherChillecke":    3, # C
+    "LautsprecherSpace":        6, # F
+    "BeamerChillecke":          5, # E
+    "Werkstatt":                7, # G
 }
 
 HOST = "172.22.35.189"
@@ -44,11 +45,11 @@ def requestMatrixState():
 
 @app.route("/")
 def index():
-    matrixState = requestMatrixState()
-    inputLautsprecherSpace = int(matrixState.split(f"O{matrixIds['LautsprecherSpace']}I")[1][0])
-    inputBeamerSpace = int(matrixState.split(f"O{matrixIds['BeamerSpace']}I")[1][0])
-    inputBeamerChillecke = int(matrixState.split(f"O{matrixIds['BeamerChillecke']}I")[1][0])
-    inputWerkstatt = int(matrixState.split(f"O{matrixIds['Werkstatt']}I")[1][0])
+    matrixState             = requestMatrixState()
+    inputLautsprecherSpace  = int(matrixState.split(f"O{matrixIds['LautsprecherSpace']}I")[1][0])
+    inputBeamerSpace        = int(matrixState.split(f"O{matrixIds['BeamerSpace']}I")[1][0])
+    inputBeamerChillecke    = int(matrixState.split(f"O{matrixIds['BeamerChillecke']}I")[1][0])
+    inputWerkstatt          = int(matrixState.split(f"O{matrixIds['Werkstatt']}I")[1][0])
 
     return f"""
 <!doctype html>
@@ -71,16 +72,16 @@ def index():
                         <input type=submit name=LautsprecherSpace value="Volumio"               class="btn {'btn-primary' if inputLautsprecherSpace == 3 else 'btn-secondary'}" />
                         <input type=submit name=LautsprecherSpace value="Chromecast Main"       class="btn {'btn-primary' if inputLautsprecherSpace == 2 else 'btn-secondary'}" />
                         <input type=submit name=LautsprecherSpace value="Chromecast Chillecke"  class="btn {'btn-primary' if inputLautsprecherSpace == 4 else 'btn-secondary'}" />
-                        <input type=submit name=LautsprecherSpace value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
+                        <input type=submit name=LautsprecherSpace value="Xbox Main"             class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
                         <h3>Beamer *space</h3>
-                        <input type=submit name=BeamerSpace value="Kabel *space"            class="btn {'btn-primary' if inputBeamerSpace == 1 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Volumio"                 class="btn {'btn-primary' if inputBeamerSpace == 3 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerSpace == 2 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerSpace == 4 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerSpace value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Kabel *space"                class="btn {'btn-primary' if inputBeamerSpace == 1 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Volumio"                     class="btn {'btn-primary' if inputBeamerSpace == 3 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Chromecast Main"             class="btn {'btn-primary' if inputBeamerSpace == 2 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Chromecast Chillecke"        class="btn {'btn-primary' if inputBeamerSpace == 4 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerSpace value="Xbox Main"                   class="btn {'btn-primary' if inputBeamerSpace == 8 else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
@@ -89,16 +90,16 @@ def index():
                         <input type=submit name=BeamerChillecke value="Volumio"                 class="btn {'btn-primary' if inputBeamerChillecke == 3 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Main"         class="btn {'btn-primary' if inputBeamerChillecke == 2 else 'btn-secondary'}" />
                         <input type=submit name=BeamerChillecke value="Chromecast Chillecke"    class="btn {'btn-primary' if inputBeamerChillecke == 4 else 'btn-secondary'}" />
-                        <input type=submit name=BeamerChillecke value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
+                        <input type=submit name=BeamerChillecke value="Xbox Main"               class="btn {'btn-primary' if inputBeamerChillecke == 8 else 'btn-secondary'}" />
                     </div>
 
                     <div style="margin-bottom: 2rem">
                         <h3>Werkstatt</h3>
-                        <input type=submit name=Werkstatt value="Kabel *space"            class="btn {'btn-primary' if inputWerkstatt == 1 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Volumio"                 class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Chromecast Main"         class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Chromecast Chillecke"    class="btn {'btn-primary' if inputWerkstatt == 4 else 'btn-secondary'}" />
-                        <input type=submit name=Werkstatt value="Xbox Main"  class="btn {'btn-primary' if inputLautsprecherSpace == 8 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Kabel *space"                  class="btn {'btn-primary' if inputWerkstatt == 1 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Volumio"                       class="btn {'btn-primary' if inputWerkstatt == 3 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Chromecast Main"               class="btn {'btn-primary' if inputWerkstatt == 2 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Chromecast Chillecke"          class="btn {'btn-primary' if inputWerkstatt == 4 else 'btn-secondary'}" />
+                        <input type=submit name=Werkstatt value="Xbox Main"                     class="btn {'btn-primary' if inputWerkstatt == 8 else 'btn-secondary'}" />
                     </div>
                 </form>
             </section>
