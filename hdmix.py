@@ -94,7 +94,7 @@ def index():
             <section id=content>
                 <form action=/switch>
                     <div style="margin-top: 1rem; margin-bottom: 2rem">
-                        <h3>"{outFLabel}"</h3>
+                        <h3>{outFLabel}</h3>
                         <button type=submit name=outF value=in1 class="btn {'btn-primary' if currentInput6 == inputIds['in1'] else 'btn-secondary'}">{in1Label}</button>
                         <button type=submit name=outF value=in3 class="btn {'btn-primary' if currentInput6 == inputIds['in3'] else 'btn-secondary'}">{in3Label}</button>
                         <button type=submit name=outF value=in2 class="btn {'btn-primary' if currentInput6 == inputIds['in2'] else 'btn-secondary'}">{in2Label}</button>
@@ -103,7 +103,7 @@ def index():
                     </div>
 
                     <div style="margin-bottom: 2rem">
-                        <h3>"{outALabel}"</h3>
+                        <h3>{outALabel}</h3>
                         <button type=submit name=outA value=in1 class="btn {'btn-primary' if currentInput1 == inputIds['in1'] else 'btn-secondary'}">{in1Label}</button>
                         <button type=submit name=outA value=in3 class="btn {'btn-primary' if currentInput1 == inputIds['in3'] else 'btn-secondary'}">{in3Label}</button>
                         <button type=submit name=outA value=in2 class="btn {'btn-primary' if currentInput1 == inputIds['in2'] else 'btn-secondary'}">{in2Label}</button>
@@ -112,7 +112,7 @@ def index():
                     </div>
 
                     <div style="margin-bottom: 2rem">
-                        <h3>"{outELabel}"</h3>
+                        <h3>{outELabel}</h3>
                         <button type=submit name=outE value=in1 class="btn {'btn-primary' if currentInput5 == inputIds['in1'] else 'btn-secondary'}">{in1Label}</button>
                         <button type=submit name=outE value=in3 class="btn {'btn-primary' if currentInput5 == inputIds['in3'] else 'btn-secondary'}">{in3Label}</button>
                         <button type=submit name=outE value=in2 class="btn {'btn-primary' if currentInput5 == inputIds['in2'] else 'btn-secondary'}">{in2Label}</button>
@@ -121,7 +121,7 @@ def index():
                     </div>
 
                     <div style="margin-bottom: 2rem">
-                        <h3>"{outGLabel}"</h3>
+                        <h3>{outGLabel}</h3>
                         <button type=submit name=outG value=in1 class="btn {'btn-primary' if currentInput7 == inputIds['in1'] else 'btn-secondary'}">{in1Label}</button>
                         <button type=submit name=outG value=in3 class="btn {'btn-primary' if currentInput7 == inputIds['in3'] else 'btn-secondary'}">{in3Label}</button>
                         <button type=submit name=outG value=in2 class="btn {'btn-primary' if currentInput7 == inputIds['in2'] else 'btn-secondary'}">{in2Label}</button>
