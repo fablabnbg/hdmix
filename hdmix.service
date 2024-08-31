@@ -1,0 +1,10 @@
+[Unit]
+Description=Control Webserver for 8x8 hdmi matrix
+After=network.target
+
+[Service]
+ExecStart=flask --app /usr/local/bin/hdmix/hdmix run --host 0.0.0.0
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
