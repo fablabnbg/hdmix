@@ -1,15 +1,17 @@
 import socket
+import threading
 
 from flask import Flask, redirect, request
 
 
+lock = threading.Lock()
 HOST = "172.22.35.189"
 PORT = 5000
 
 
 # array order like on device
 inputs = [
-    "Kabel *space", 
+    "Kabel *space",
     "Chromecast Main",
     "Volumio",
     "Chromecast Chillout",
@@ -24,7 +26,7 @@ inputs = [
 outputs = [
     ("Beamer *space",           2),
     ("",                        0),
-    ("Lautsprecher Chillout",   4), 
+    ("Lautsprecher Chillout",   4),
     ("",                        0),
     ("Beamer Chillout",         5),
     ("Lautsprecher *space",     1),
@@ -38,19 +40,24 @@ app = Flask(__name__)
 
 def switchInput(input, output):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        s.sendall(str.encode(f"MT00SW0{input}0{output}NT"))
+        with lock:
+            s.settimeout(3)
+            s.connect((HOST, PORT))
+            s.sendall(str.encode(f"MT00SW0{input}0{output}NT"))
 
 
 def requestMatrixState():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        s.sendall(str.encode("MT00RD0000NT"))
+        with lock:
+            s.settimeout(3)
+            s.connect((HOST, PORT))
+            s.sendall(str.encode("MT00RD0000NT"))
 
-        data = ""
-        while not data.endswith("END"):
-            data += str(s.recv(1024), "ascii")
-        return data
+            data = ""
+            while not data.endswith("END"):
+                data += str(s.recv(1024), "ascii")
+
+            return data
 
 
 @app.route("/")
@@ -102,4 +109,3 @@ def switch():
             print(f"{input}({inputs[int(input) - 1]}) -> {output}({outputs[int(output) - 1][0]})")
 
     return redirect("/")
-
