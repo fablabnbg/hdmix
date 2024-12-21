@@ -15,7 +15,7 @@ inputs = [
     "Chromecast Main",
     "Volumio",
     "Chromecast Chillout",
-    "",
+    "Kabel Besprechungsraum",
     "",
     "",
     "Xbox Main",
@@ -24,14 +24,14 @@ inputs = [
 # array order like on device
 # (output name, display position)
 outputs = [
-    ("Beamer *space",           2),
-    ("",                        0),
-    ("Lautsprecher Chillout",   4),
-    ("",                        0),
-    ("Beamer Chillout",         5),
-    ("Lautsprecher *space",     1),
-    ("Werkstatt",               3),
-    ("",                        0),
+    ("Beamer *space",                   2),
+    ("Lautsprecher Besprechungsraum",         3),
+    ("Lautsprecher Chillout",           6),
+    ("Beamer Besprechungsraum",         4),
+    ("Beamer Chillout",                 7),
+    ("Lautsprecher *space",             1),
+    ("Werkstatt",                       5),
+    ("",                                0),
 ]
 
 
